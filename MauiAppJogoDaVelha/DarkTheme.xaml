@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    x:Class="MauiAppJogoDaVelha.DarkTheme">
+    
+    <Color x:Key="CorDoTexto">White</Color>
+    <Color x:Key="CorDaBorda">White</Color>
+
+    <Color x:Key="CorDoTitulo">White</Color>
+
+    <LinearGradientBrush x:Key="CorDeFundo" StartPoint="0,1" EndPoint="1,0">
+        <GradientStop Color="Blue" Offset="0.3" />
+        <GradientStop Color="Green" Offset="1.1" />
+    </LinearGradientBrush>
+    
+</ResourceDictionary>

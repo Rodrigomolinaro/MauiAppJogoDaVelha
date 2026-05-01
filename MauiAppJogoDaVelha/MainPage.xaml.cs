@@ -3,9 +3,36 @@
     public partial class MainPage : ContentPage
     {
         string vez = "✈️";
+        bool isDarkTheme = true;
         public MainPage()
         {
             InitializeComponent();
+        }
+        private void BtnMudarTema_Clicked(object sender, EventArgs e)
+        {
+            var dicionarios = Application.Current.Resources.MergedDictionaries;
+
+            var temaAtual = dicionarios.FirstOrDefault(d => d.GetType() == typeof(DarkTheme) || d.GetType() == typeof(LightTheme));
+
+            if (temaAtual != null)
+            {
+                
+                {
+                    dicionarios.Remove(temaAtual);
+                }
+
+                
+                if (isDarkTheme)
+                {
+                    dicionarios.Add(new LightTheme());
+                    isDarkTheme = false;
+                }
+                else
+                {
+                    dicionarios.Add(new DarkTheme());
+                    isDarkTheme = true;
+                }
+            }
         }
 
         private void Button_Clicked(object sender, EventArgs e)
@@ -22,7 +49,7 @@
                 btn.Text = "🚁";
                 
             }
-            /* Verificando se o X ganhou na 1ª linha */
+            
             if (VerificarVitoria(vez))
             {
                 DisplayAlert("Parabéns!", $"O {vez} ganhou!", "OK");
@@ -30,7 +57,7 @@
                 return;
             }
 
-            //vefirica se deu velha
+            
             if (VerificarEmpate())
             {
                 DisplayAlert("Deu Velha!", "O Jogo Empatou!", "OK");
